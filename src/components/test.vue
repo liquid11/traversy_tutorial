@@ -15,7 +15,16 @@
             <li v-for="item in items">{{item.title}}</li>
         </ul> -->
      <button v-on:click="greet">action</button>
-     <input type="text" v-on:keyup="presskey" v-on="keyup.enter="enterkey"/>
+       <br>
+     <input type="text" v-on:keyup="presskey" v-on:keyup.enter="enterkey"/>
+       <br>
+     <label>First Name</label>
+       <br>
+     <input type="text" v-model="user.first_name">
+     <br>
+     <input type="text" v-model="user.last_name">
+     <br>
+    <h3>{{fullName}}</h3>
     </div>
 </template>
 
@@ -45,6 +54,11 @@ export default {
     enterkey: function(e) {
       //    console.log("key pressed");
       console.log("the value entered is " + e.target.value);
+    }
+  },
+  computed: {
+    fullName: function() {
+      return this.user.first_name + " " + this.user.last_name;
     }
   }
 };
