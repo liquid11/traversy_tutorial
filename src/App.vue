@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <test msg="external value for the component"></test>
+    <!-- <test msg="external value for the component"></test> -->
+    <users/>
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
@@ -8,11 +9,12 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import Test from "./components/test";
+// import Test from "./components/test";
+import Users from "./components/Users";
 export default {
   name: "app",
   components: {
-    Test
+    Users
   }
 };
 </script>
