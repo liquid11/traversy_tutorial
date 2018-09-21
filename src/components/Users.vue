@@ -25,23 +25,7 @@ export default {
   data() {
     return {
       newUser: {},
-      users: [
-        {
-          name: "arsalan khan",
-          contacted: false,
-          email: "arsalankhan@gmail.com"
-        },
-        {
-          name: "fahad",
-          contacted: false,
-          email: "fahad@gmail.com"
-        },
-        {
-          name: "usman",
-          contacted: true,
-          email: "usman@gmail.com"
-        }
-      ]
+      users: []
     };
   },
   methods: {
@@ -60,11 +44,20 @@ export default {
 
      this.users.splice(this.users.indexOf(user), 1);
     }
+  },
+  created: function(){
+this.$http.get("https://jsonplaceholder.typicode.com/users").then( 
+  function(response){
+    //console.log(response.data);
+    this.users = response.data;
+  }
+);
+
   }
 };
 </script>
 <style scoped>
-.contacted{
+.contacted {
   text-decoration: line-through;
 }
 </style>
